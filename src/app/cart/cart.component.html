@@ -1,0 +1,89 @@
+<h1>Details</h1>
+
+<form>
+    <table>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      id="name"
+      placeholder="Name"
+      formControlName="name"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="address" class="form-label">Address:</label>
+    <input
+      type="text"
+      class="form-control"
+      name="address"
+      id="address"
+      placeholder="Address"
+      formControlName="address"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input
+      type="text"
+      class="form-control"
+      name="email"
+      id="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone:</label>
+    <input
+      type="text"
+      class="form-control"
+      name="phone"
+      id="phone"
+      placeholder="Phone"
+      formControlName="phone"
+    />
+  </div>
+
+  <div>
+    <label for="Express">Express: </label><br />
+    <input type="checkbox" id="express" name="express" value="express" formControlName="express" />
+  </div>
+
+  <div>
+    Delivery:
+    <input type="radio" id="morning" name="morning" value="morning" formControlName="morning"/>
+    <label for="morning">0900 - 1100</label>
+    <input type="radio" id="afternoon" name="afternoon" value="afternoon" formControlName="afternoon" />
+    <label for="afternoon">1100 - 1500</label>
+    <input type="radio" id="evening" name="evening" value="evening" formControlName="evening" />
+    <label for="evening">1500 - 1900</label>
+  
+  </div>
+
+  <button type="button" (click)="checkOut()">Check Out</button>
+  <button type="button" (click)="addOrder()">Add Order</button>
+
+</table>
+
+
+
+<h1>Cart</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+        </tr>
+    </thead>
+    <tbody formArrayName="cart">
+        <tr *ngFor=""
+    </tbody>
+</table>
+</form>
