@@ -1,6 +1,6 @@
 <h1>Details</h1>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="processForm()">
     <table>
   <div class="mb-3">
     <label for="name" class="form-label">Name:</label>
@@ -57,17 +57,17 @@
 
   <div>
     Delivery:
-    <input type="radio" id="morning" name="morning" value="morning" formControlName="morning"/>
+    <input type="radio" id="morning" name="delivery" value="morning" formControlName="delivery"/>
     <label for="morning">0900 - 1100</label>
-    <input type="radio" id="afternoon" name="afternoon" value="afternoon" formControlName="afternoon" />
+    <input type="radio" id="afternoon" name="delivery" value="afternoon" formControlName="delivery" />
     <label for="afternoon">1100 - 1500</label>
-    <input type="radio" id="evening" name="evening" value="evening" formControlName="evening" />
+    <input type="radio" id="evening" name="delivery" value="evening" formControlName="delivery" />
     <label for="evening">1500 - 1900</label>
   
   </div>
 
-  <button type="button" (click)="checkOut()">Check Out</button>
-  <button type="button" (click)="addOrder()">Add Order</button>
+  <button type="submit">Check Out</button>
+<button type="button" (click)="addLineItem()">Add Order</button>
 
 </table>
 
@@ -82,8 +82,21 @@
             <th>Unit Price</th>
         </tr>
     </thead>
-    <tbody formArrayName="cart">
-        <tr *ngFor=""
+    <tbody formArrayName="lineItems">
+        <tr *ngFor = "let li of lineItems.controls; let i = index" [formGroupName]="i">
+          <td>
+            <input type="text" size="20" placeholder="Item" formControlName="item">
+          </td>
+          <td>
+            <input type="number" size="20" placeholder="Quantity" min = "1" formControlName="quantity">
+          </td>
+          <td>
+            <input type="number" size="20" placeholder="Price" min = "1" step=".1" formControlName="unitPrice">
+          </td>
+          <td>
+            <button type="button" (click)="removeLineItem(i)">X</button>
+          </td>
+        </tr>
     </tbody>
 </table>
 </form>

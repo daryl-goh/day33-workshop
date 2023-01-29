@@ -1,3 +1,14 @@
-<app-cart></app-cart>
-<app-order></app-order>
-<router-outlet></router-outlet>
+<!-- <app-cart (OnNewOrder)="processNewOrder($event)"></app-cart>
+<app-order [order] = "order" [name] = "customerName"></app-order> -->
+
+<table>
+    <tr>
+      <td>
+        <app-cart (onNewOrder)="processNewOrder($event)"></app-cart>
+      </td>
+      <td>
+        <app-order [order]="order" [name]="customerName"></app-order>
+      </td>
+    </tr>
+  </table>
+  

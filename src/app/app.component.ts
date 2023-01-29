@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Order } from './models';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'day33-workshop';
+  
+  order!: Order
+
+  customerName!: string
+
+  processNewOrder(o: Order) {
+    this.order = o;
+    this.customerName = o.name
+    console.info('>>> in AppComponent: ', this.order)
+  }
 }

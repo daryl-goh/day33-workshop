@@ -1,14 +1,15 @@
-export interface Cart {
+export interface LineItem {
     item: string;
     quantity: number;
     price: number;
 }
 
-export interface Details {
+export interface Order {
     name: string;
     address: string;
     email: string;
-    phone: number;
+    phone: string;
     express: string;
     delivery: string;
+    lineItems: LineItem[];
 }
