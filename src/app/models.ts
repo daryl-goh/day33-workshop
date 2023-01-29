@@ -1,7 +1,7 @@
 export interface LineItem {
     item: string;
     quantity: number;
-    price: number;
+    unitPrice: number;
 }
 
 export interface Order {

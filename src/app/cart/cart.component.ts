@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
     return this.fb.group({
       item: this.fb.control<string>(''),
       quantity: this.fb.control<number>(1),
-      price: this.fb.control<number>(1)
+      unitPrice: this.fb.control<number>(1)
     })
   }
 
